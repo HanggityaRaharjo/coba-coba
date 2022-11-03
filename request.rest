@@ -1,0 +1,50 @@
+### Login User
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email" : "mail@gmail.com",
+    "password" : "123456"
+}
+
+### Get Session
+Get http://localhost:5000/me
+
+### LogOut Session
+DELETE http://localhost:5000/logout
+
+### Create User
+POST http://localhost:5000/users
+Content-Type: application/json
+
+{
+    "name" : "mail kece",
+    "email" : "mail@gmail.com",
+    "password" : "123456",
+    "confpassword" : "123456",
+    "role" : "kasir"
+}
+
+### Get All User
+GET http://localhost:5000/users
+
+### Get User By Id
+GET http://localhost:5000/users/cb90fcc8-8110-4041-a849-411754252c9c
+
+### Update User 
+PATCH http://localhost:5000/users/cb90fcc8-8110-4041-a849-411754252c9c
+Content-Type: application/json
+
+{
+    "name" : "Ismail Mail",
+    "email" : "mail@gmail.com",
+    "password" : "123456",
+    "confpassword" : "123456",
+    "role" : "kasir"
+}
+
+### Delete User
+DELETE http://localhost:5000/users/d2d5ef47-077d-4e3c-ae09-e649e810661b
+
+### Get Product
+Get http://localhost:5000/products
