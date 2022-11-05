@@ -1,3 +1,4 @@
+######################   AUTHENTICATION ###########################
 ### Login User
 POST http://localhost:5000/login
 Content-Type: application/json
@@ -18,18 +19,18 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
-    "name" : "mail kece",
+    "name" : "mail mail",
     "email" : "mail@gmail.com",
     "password" : "123456",
     "confpassword" : "123456",
     "role" : "kasir"
 }
-
+############################   USER ###############################
 ### Get All User
 GET http://localhost:5000/users
 
 ### Get User By Id
-GET http://localhost:5000/users/cb90fcc8-8110-4041-a849-411754252c9c
+GET http://localhost:5000/users/8bd36bad-4ce6-4e3d-9b8a-470baf7b6131
 
 ### Update User 
 PATCH http://localhost:5000/users/cb90fcc8-8110-4041-a849-411754252c9c
@@ -44,7 +45,84 @@ Content-Type: application/json
 }
 
 ### Delete User
-DELETE http://localhost:5000/users/d2d5ef47-077d-4e3c-ae09-e649e810661b
+DELETE http://localhost:5000/users/ba9bd02b-f8e3-4772-be95-34566326a6ec
 
-### Get Product
-Get http://localhost:5000/products
+############################   PRODUCT   ###############################
+
+### Get All Product
+GET http://localhost:5000/products
+
+
+### Get Product By Id
+GET http://localhost:5000/products/3
+
+### Create Product
+POST http://localhost:5000/products
+Content-Type: application/json
+
+{
+    "kode": "product2",
+    "kategoriId": 1,
+    "nama": "Ayam Bensu",
+    "harga": 80000,
+    "stok": 10
+}
+
+### Update Product
+PATCH http://localhost:5000/products/3
+Content-Type: application/json
+
+{
+    "kode": "product2_update",
+    "kategoriId": 2,
+    "nama": "nama_product_update",
+    "harga": 90000,
+    "stok": 9
+}
+
+### Delete Product
+DELETE http://localhost:5000/products/2
+
+############################   JENIS   ###############################
+
+### Get All Jenis
+GET http://localhost:5000/jenis
+
+### Get Jenis By Id
+GET http://localhost:5000/jenis/3
+
+### Get All Jenis By Name
+GET http://localhost:5000/jenis/all/makanan
+
+### Create Jenis
+POST http://localhost:5000/jenis
+Content-Type: application/json
+
+{
+    "kode" : "jenis6",
+    "jenis_produk" : "dessert"
+}
+
+### Update Jenis By Id
+PATCH http://localhost:5000/jenis/4
+Content-Type: application/json
+
+{
+    "kode" : "jenis5_update",
+    "jenis_produk" : "minuman"
+}
+
+### Delete Jenis
+DELETE http://localhost:5000/jenis/6
+
+############################   KATEGORI   ###############################
+
+### kategori
+POST http://localhost:5000/kategori
+Content-Type: application/json
+
+{
+    "kode" : "kategori1",
+    "kategori" : "dessert",
+    "jenisId" : "1"
+}

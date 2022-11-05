@@ -8,6 +8,12 @@ import SequelizeStore from 'connect-session-sequelize';
 import UserRoute from './routes/UserRoute.js';
 import ProductRoute from './routes/ProductRoute.js';
 import AuthRoute from './routes/AuthRoute.js';
+import JenisRoute from './routes/JenisRoute.js';
+import KategoriRoute from './routes/KategoriRoute.js';
+import PenjualanRoute from './routes/PenjualanRoute.js';
+import TransaksiRoute from './routes/TransaksiRoute.js';
+import SaldoLoginRoute from './routes/SaldoLoginRoute.js';
+import SaldoLogoutRoute from './routes/SaldoLogoutRoute.js';
 
 dotenv.config();
 
@@ -42,6 +48,18 @@ app.use(UserRoute);
 app.use(ProductRoute);
 
 app.use(AuthRoute);
+
+app.use(JenisRoute);
+
+app.use(KategoriRoute);
+
+app.use(PenjualanRoute);
+
+app.use(TransaksiRoute);
+
+app.use(SaldoLoginRoute);
+
+app.use(SaldoLogoutRoute);
 
 app.use(fileUpload());
 

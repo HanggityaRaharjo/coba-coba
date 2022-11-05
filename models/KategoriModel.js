@@ -1,14 +1,20 @@
 import { Sequelize } from 'sequelize';
 import db from '../config/Database.js';
-import Kategori from '../models/KategoriModel.js';
-
+import Jenis from './JenisModel.js';
 
 const { DataTypes } = Sequelize;
 
-const Products = db.define(
-  'product',
+const Kategori = db.define(
+  'kategori',
   {
     kode: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notEmpty: true,
+      },
+    },
+    kategori: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -16,29 +22,9 @@ const Products = db.define(
         len: [3, 100],
       },
     },
-    kategoriId: {
+    jenisId: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-    nama: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-    harga: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      validate: {
-        notEmpty: true,
-      },
-    },
-    stok: {
-      type: DataTypes.INTEGER,
+      defaultValue: DataTypes.UUIV4,
       allowNull: false,
       validate: {
         notEmpty: true,
@@ -50,7 +36,7 @@ const Products = db.define(
   }
 );
 
-Kategori.hasMany(Products);
-Products.belongsTo(Kategori, { foreignKey: 'kategoriId' });
+Jenis.hasMany(Kategori);
+Kategori.belongsTo(Jenis, { foreignKey: 'jenisId' });
 
-export default Products;
+export default Kategori;
